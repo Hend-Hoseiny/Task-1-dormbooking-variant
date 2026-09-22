@@ -109,7 +109,6 @@ export async function updateBooking(req, res, next) {
     };
 
     const existing = await Booking.findOne({
-      _id: { $ne: currentBooking._id },
       roomNumber: proposedBooking.roomNumber,
       startDate: { $lt: proposedBooking.endDate },
       endDate: { $gt: proposedBooking.startDate }
